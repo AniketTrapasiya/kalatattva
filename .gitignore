@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# business-card scans (source material, not site assets)
+Image_20260813_*.jpeg

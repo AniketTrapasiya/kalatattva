@@ -1,0 +1,54 @@
+/* ═════════════════════════════════════════════════════════════
+   THEMES — the ONLY file to edit when changing site colors.
+
+   Every component uses these semantic tokens (via Tailwind
+   classes like bg-ivory, text-gold, border-line), so redefining
+   the eight variables below restyles the entire site.
+
+     --ivory     page background
+     --cream     alternate light bands
+     --charcoal  dark bands + headline text on light
+     --ink-soft  muted body text on light
+     --gold      accent (labels, hovers, CTAs)
+     --sindoor   rare second accent (max one per view)
+     --line      hairline borders
+     --paper     text color on dark (--charcoal) bands
+
+   To add a theme: copy a block, pick a new data-theme name,
+   and register it in src/lib/themes.ts so the toggle knows it.
+   ═════════════════════════════════════════════════════════════ */
+
+/* ── Theme 1 · "ivory" — warm ivory editorial (default) ────── */
+:root,
+[data-theme="ivory"] {
+  --ivory: #faf7f0;
+  --cream: #f1eae0;
+  --charcoal: #1c1a17;
+  --ink-soft: #57514a;
+  --gold: #b08d4a;
+  --sindoor: #8a2e2b;
+  --line: #e3dacb;
+  --paper: #ede8e0;
+}
+
+/* ── Theme 2 · "tattva" — deep teal from the business card ──
+   Sampled from the Kalatattva card: viridian teal + porcelain. */
+[data-theme="tattva"] {
+  --ivory: #f4f7f5; /* cool porcelain page bg */
+  --cream: #e7eeea; /* pale sage bands */
+  --charcoal: #16332c; /* deep card teal — dark bands & headlines */
+  --ink-soft: #4c5f57; /* muted green-grey body text */
+  --gold: #b3945e; /* soft brass — reads rich against teal */
+  --sindoor: #8a2e2b;
+  --line: #d5e0da; /* sage hairlines */
+  --paper: #eaf1ed; /* porcelain text on teal bands */
+}
+
+/* Soften the switch between themes (transform/opacity rule does
+   not apply here — this is a deliberate, user-triggered change). */
+body,
+[data-theme] body {
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}

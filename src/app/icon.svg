@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Kalatattva favicon — card teal tile with serif K -->
+  <rect width="64" height="64" rx="12" fill="#2e5a4f"/>
+  <text x="32" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="42" fill="#f4f7f5">K</text>
+</svg>
