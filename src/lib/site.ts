@@ -5,13 +5,23 @@
  * ─────────────────────────────────────────────────────────────
  */
 
+/**
+ * Production URL — set NEXT_PUBLIC_SITE_URL to the real domain before
+ * deploying. Resilient on purpose: an EMPTY env var (common on Vercel)
+ * falls back to the default, and a bare domain gets https:// prefixed —
+ * `new URL(site.url)` in layout.tsx must never throw at build time.
+ */
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const siteUrl = rawSiteUrl
+  ? (rawSiteUrl.startsWith("http") ? rawSiteUrl : `https://${rawSiteUrl}`).replace(/\/+$/, "")
+  : "https://kalatattvaphotography.com";
+
 export const site = {
   /** Brand name shown in the logo, titles and schema. */
   name: "Kalatattva",
   /** Logo wordmark split — "Kala" + italic gold "tattva". */
   tagline: "Weddings • Films • Forever",
-  /** Production URL — set this to the real domain before deploying. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kalatattvaphotography.com",
+  url: siteUrl,
 
   description:
     "Kalatattva Photography is a wedding photography & cinematography studio capturing Gujarati and Marathi weddings, pre-weddings, shrimant & baby showers, garba nights, home functions and celebrity events across India — from Taj hotels to stadium stages.",
