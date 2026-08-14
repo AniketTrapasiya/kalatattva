@@ -327,6 +327,26 @@ export const rituals: { tradition: string; items: Ritual[] }[] = [
   },
 ];
 
+export interface InstaPost {
+  /** Instagram shortcode — the post lives at instagram.com/p/<shortcode>/ */
+  shortcode: string;
+  src: string;
+  alt: string;
+}
+
+/**
+ * REAL posts pulled from @kalatattvaphotography — refresh occasionally
+ * by saving new post images to /public/images/insta/<shortcode>.jpg.
+ */
+export const instaPosts: InstaPost[] = [
+  { shortcode: "DZrTmSIjLgr", src: "/images/insta/DZrTmSIjLgr.jpg", alt: "Bride and groom close-up — a moment between vows" },
+  { shortcode: "DZzQl20DIPV", src: "/images/insta/DZzQl20DIPV.jpg", alt: "Keyur & Priyanka — wedding editorial" },
+  { shortcode: "DZQOYrSDKcq", src: "/images/insta/DZQOYrSDKcq.jpg", alt: "Priyank & Gayatri — bride in red lehenga" },
+  { shortcode: "DZsU3megc8j", src: "/images/insta/DZsU3megc8j.jpg", alt: "Bride Nency — portrait series" },
+  { shortcode: "DZNntUZM5dv", src: "/images/insta/DZNntUZM5dv.jpg", alt: "Couple portrait under the palms" },
+  { shortcode: "DZ-EFD5DIfW", src: "/images/insta/DZ-EFD5DIfW.jpg", alt: "Nirav & Dhara — wedding story" },
+];
+
 /** Marquee strip words used in animated section dividers. */
 export const marqueeWords = [
   "Weddings",

@@ -3,17 +3,8 @@ import { InstagramIcon } from "@/components/icons";
 import Reveal from "@/components/ui/Reveal";
 import ImageReveal from "@/components/ui/ImageReveal";
 import Magnetic from "@/components/ui/Magnetic";
-import { galleryItem } from "@/lib/data";
+import { instaPosts } from "@/lib/data";
 import { site } from "@/lib/site";
-
-const picks = [
-  galleryItem("couple-01"),
-  galleryItem("garba-01"),
-  galleryItem("homefn-02"),
-  galleryItem("wedding-04"),
-  galleryItem("homefn-01"),
-  galleryItem("event-06"),
-];
 
 /** Six-square Instagram strip — curtain-wipe reveals, hover to follow. */
 export default function InstaStrip() {
@@ -47,13 +38,13 @@ export default function InstaStrip() {
         </div>
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          {picks.map((item, i) => (
+          {instaPosts.map((item, i) => (
             <ImageReveal key={item.src} delay={i * 0.07}>
               <a
-                href={site.social.instagram}
+                href={`https://www.instagram.com/p/${item.shortcode}/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${item.alt} — on Instagram`}
+                aria-label={`${item.alt} — open on Instagram`}
                 className="group relative block aspect-square overflow-hidden bg-cream"
               >
                 <Image

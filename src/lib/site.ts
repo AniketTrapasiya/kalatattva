@@ -25,7 +25,8 @@ export const site = {
   /** Brand name shown in the logo, titles and schema. */
   name: "Kalatattva",
   /** Logo wordmark split — "Kala" + italic gold "tattva". */
-  tagline: "Weddings • Films • Forever",
+  /** The studio's own line, verbatim from their Instagram bio. */
+  tagline: "Magical wedding tales, knitted with love",
   url: siteUrl,
 
   description:
