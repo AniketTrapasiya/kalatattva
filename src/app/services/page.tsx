@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, servicesSchema } from "@/lib/schema";
 import { heroImages, services } from "@/lib/data";
 import ServiceRow from "@/components/services/ServiceRow";
 import Packages from "@/components/services/Packages";
@@ -26,6 +26,7 @@ export default function ServicesPage() {
           { name: "Services", path: "/services" },
         ])}
       />
+      <JsonLd data={servicesSchema()} />
 
       <PageHero
         image={heroImages.services}

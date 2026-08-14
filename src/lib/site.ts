@@ -6,15 +6,20 @@
  */
 
 /**
- * Production URL — set NEXT_PUBLIC_SITE_URL to the real domain before
- * deploying. Resilient on purpose: an EMPTY env var (common on Vercel)
- * falls back to the default, and a bare domain gets https:// prefixed —
- * `new URL(site.url)` in layout.tsx must never throw at build time.
+ * Site URL resolution (no custom domain yet — the Vercel domain is used):
+ *   1. NEXT_PUBLIC_SITE_URL — set this once a real domain exists
+ *   2. VERCEL_PROJECT_PRODUCTION_URL — set automatically by Vercel
+ *   3. the kalatattva.vercel.app fallback
+ * Resilient on purpose: EMPTY env vars fall through, and a bare domain
+ * gets https:// prefixed — `new URL(site.url)` in layout.tsx must never
+ * throw at build time.
  */
-const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const rawSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+  process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
 const siteUrl = rawSiteUrl
   ? (rawSiteUrl.startsWith("http") ? rawSiteUrl : `https://${rawSiteUrl}`).replace(/\/+$/, "")
-  : "https://kalatattvaphotography.com";
+  : "https://kalatattva.vercel.app";
 
 export const site = {
   /** Brand name shown in the logo, titles and schema. */

@@ -1,5 +1,5 @@
 import { site } from "@/lib/site";
-import { faqs, films } from "@/lib/data";
+import { faqs, films, services } from "@/lib/data";
 
 /**
  * JSON-LD builders for SEO + GEO (AI search engines).
@@ -30,6 +30,20 @@ export function baseGraph() {
           addressRegion: site.address.region,
           postalCode: site.address.postalCode,
           addressCountry: site.address.country,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 23.0225,
+          longitude: 72.5714,
+        },
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday", "Tuesday", "Wednesday", "Thursday",
+            "Friday", "Saturday", "Sunday",
+          ],
+          opens: "09:00",
+          closes: "21:00",
         },
         areaServed: site.cities.map((city) => ({ "@type": "City", name: city })),
         sameAs: [site.social.instagram, site.social.youtube],
@@ -84,6 +98,23 @@ export function faqSchema() {
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
+export function servicesSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: services.map((s, i) => ({
+      "@type": "Service",
+      position: i + 1,
+      name: s.title,
+      description: s.description,
+      serviceType: "Wedding photography and cinematography",
+      provider: { "@id": businessId },
+      areaServed: site.cities.map((city) => ({ "@type": "City", name: city })),
+      image: `${site.url}${s.image}`,
     })),
   };
 }
