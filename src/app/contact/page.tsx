@@ -36,7 +36,7 @@ export default function ContactPage() {
       />
 
       {/* ── Split: channels + form ─────────────────────────── */}
-      <section className="bg-ivory py-16 md:py-24">
+      <section id="enquiry-form" className="scroll-mt-24 bg-ivory py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 md:px-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-24">
           <div>
             <HeadlineReveal
@@ -52,9 +52,8 @@ export default function ContactPage() {
                 confirm the same day whether we&rsquo;re free to be there.
               </p>
             </Reveal>
-            <Reveal delay={0.2} className="mt-12">
-              <div className="rule-gold mb-2" />
-            </Reveal>
+            <div className="mt-12">
+            </div>
             <ContactChannels />
           </div>
 

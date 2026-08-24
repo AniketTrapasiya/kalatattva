@@ -86,7 +86,7 @@ export default function HomeHero() {
           >
             <Magnetic>
               <Link
-                href="/contact"
+                href="/contact#enquiry-form"
                 className="group inline-flex items-center gap-3 rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-charcoal transition-colors duration-500 hover:bg-paper"
               >
                 Inquire about your date

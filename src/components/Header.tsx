@@ -88,7 +88,7 @@ export default function Header() {
             <ThemeToggle className={scrolled ? "text-charcoal" : "text-paper"} />
             <Magnetic>
               <Link
-                href="/contact"
+                href="/contact#enquiry-form"
                 className="micro-label rounded-full border border-gold px-6 py-3 text-gold transition-all duration-300 hover:bg-gold hover:text-ivory"
               >
                 Inquire

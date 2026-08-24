@@ -37,7 +37,7 @@ export default function Footer() {
         <Reveal delay={0.3} className="mt-10">
           <Magnetic>
             <Link
-              href="/contact"
+              href="/contact#enquiry-form"
               className="micro-label inline-block rounded-full border border-gold px-10 py-5 text-gold transition-all duration-300 hover:bg-gold hover:text-charcoal"
             >
               Inquire about your date
