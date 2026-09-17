@@ -128,7 +128,7 @@ export function DateReveal() {
                   <span aria-hidden="true" className="animate-seal-pulse absolute inset-0 rounded-full bg-inv-gold/40" />
                   <span
                     aria-hidden="true"
-                    className="relative flex size-28 flex-col items-center justify-center rounded-full border border-inv-gold-soft bg-[radial-gradient(circle_at_35%_30%,color-mix(in_oklab,var(--color-primary)_80%,white),var(--color-primary-deep)_72%)] text-inv-gold-soft shadow-[0_12px_30px_rgba(41,28,26,0.4),inset_0_0_0_6px_rgba(181,150,90,0.35)] transition-transform duration-500 group-hover:scale-105"
+                    className="relative flex size-28 flex-col items-center justify-center rounded-full border border-inv-gold-soft bg-[radial-gradient(circle_at_35%_30%,color-mix(in_oklab,var(--color-inv-primary)_80%,white),var(--color-inv-primary-deep)_72%)] text-inv-gold-soft shadow-[0_12px_30px_rgba(41,28,26,0.4),inset_0_0_0_6px_rgba(181,150,90,0.35)] transition-transform duration-500 group-hover:scale-105"
                   >
                     <span className="font-script text-[1.9rem] leading-none">{monogram}</span>
                     <span className="eyebrow mt-2 text-[0.48rem] tracking-[0.2em]">Tap to reveal</span>

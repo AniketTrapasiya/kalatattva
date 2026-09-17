@@ -1,4 +1,4 @@
-import { useEffect, useState, type Dispatch, type SetStateAction } from 'react'
+import { useEffect, useRef, useState, type Dispatch, type SetStateAction } from 'react'
 
 /**
  * State mirrored to localStorage. Stored values are validated on read so a
@@ -20,9 +20,26 @@ export function useLocalStorage<T>(
     }
   }
 
-  const [value, setValue] = useState<T>(read)
+  /*
+   * Ported note: the original seeded state directly from localStorage. These pages are
+   * prerendered now, so reading storage during the first render throws on the server and
+   * mismatches on the client (React #418), which aborts hydration for the whole page.
+   * State therefore starts at `initialValue` — matching the server HTML — and the stored
+   * value is adopted in an effect, after hydration.
+   */
+  const [value, setValue] = useState<T>(initialValue)
+  const hydrated = useRef(false)
 
   useEffect(() => {
+    setValue(read())
+    hydrated.current = true
+    // `read` closes over key/initialValue/isValid; re-running on key change is the intent.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key])
+
+  useEffect(() => {
+    // Don't write back the placeholder before the stored value has been read.
+    if (!hydrated.current) return
     try {
       window.localStorage.setItem(key, JSON.stringify(value))
     } catch {

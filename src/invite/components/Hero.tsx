@@ -175,7 +175,7 @@ function PortalScene({ art, progress }: { art: HeroArt; progress: MotionValue<nu
       </div>
 
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_78%,#fffcf4_0%,var(--color-cream)_38%,var(--color-ivory)_75%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_78%,#fffcf4_0%,var(--color-inv-cream)_38%,var(--color-inv-ivory)_75%)]"
         style={{ opacity: veilOpacity }}
       />
 

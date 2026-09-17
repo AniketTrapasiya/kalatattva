@@ -10,7 +10,7 @@ interface OrnamentProps {
   className?: string
 }
 
-const accent = { fill: 'var(--color-accent)' }
+const accent = { fill: 'var(--color-inv-accent)' }
 
 function DividerShell({ className = '', children }: { className?: string; children: ReactNode }) {
   return (
@@ -288,20 +288,20 @@ export function JharokhaCrown({ className = '' }: { className?: string }) {
     <svg viewBox="0 0 220 70" className={className} aria-hidden="true" focusable="false">
       <path
         d="M10 68V52h14c4-14 12-24 24-30 6-12 18-20 32-22h60c14 2 26 10 32 22 12 6 20 16 24 30h14v16z"
-        fill="var(--color-cream)"
-        stroke="var(--color-gold)"
+        fill="var(--color-inv-cream)"
+        stroke="var(--color-inv-gold)"
         strokeWidth="1.5"
       />
       <path
         d="M36 68c3-12 10-20 20-24 5-10 14-16 25-18h58c11 2 20 8 25 18 10 4 17 12 20 24"
         fill="none"
-        stroke="var(--color-gold)"
+        stroke="var(--color-inv-gold)"
         strokeOpacity="0.55"
       />
-      <path d="M104 26c0-8 3-13 6-16 3 3 6 8 6 16z" fill="var(--color-gold)" />
-      <circle cx="110" cy="7" r="3" fill="var(--color-accent)" />
+      <path d="M104 26c0-8 3-13 6-16 3 3 6 8 6 16z" fill="var(--color-inv-gold)" />
+      <circle cx="110" cy="7" r="3" fill="var(--color-inv-accent)" />
       {[70, 150].map((x) => (
-        <circle key={x} cx={x} cy="46" r="3" fill="var(--color-accent)" />
+        <circle key={x} cx={x} cy="46" r="3" fill="var(--color-inv-accent)" />
       ))}
     </svg>
   )

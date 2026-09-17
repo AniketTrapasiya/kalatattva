@@ -23,7 +23,7 @@ export function FolkEvents({ events, nativeLang, ...shared }: EventsLayoutProps)
               >
                 {/* Day medallion: a mirror set in running stitch */}
                 <div aria-hidden="true" className="absolute -top-10 left-1/2 -translate-x-1/2">
-                  <span className="grid size-20 place-items-center rounded-full border-2 border-dashed border-inv-gold bg-inv-primary-deep text-inv-gold-soft shadow-[0_0_0_5px_var(--color-primary-deep)]">
+                  <span className="grid size-20 place-items-center rounded-full border-2 border-dashed border-inv-gold bg-inv-primary-deep text-inv-gold-soft shadow-[0_0_0_5px_var(--color-inv-primary-deep)]">
                     <span className="leading-none">
                       <span className="display-name block text-[1.7rem]">{dayNumber(event.date)}</span>
                       <span className="mt-1 block text-[0.55rem] font-semibold tracking-[0.24em] uppercase">{event.day.slice(0, 3)}</span>

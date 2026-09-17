@@ -2,7 +2,7 @@ import type { StorySlide, TraditionId } from '../types'
 
 export const heroArt = (id: TraditionId) => ({
   src: `/images/invitations/hero/${id}-1024.webp`,
-  srcSet: `/images/invitations/hero/${id}-720.webp 720w, /images/hero/${id}-1024.webp 1024w`,
+  srcSet: `/images/invitations/hero/${id}-720.webp 720w, /images/invitations/hero/${id}-1024.webp 1024w`,
 })
 
 export const mapSearch = (query: string) =>
