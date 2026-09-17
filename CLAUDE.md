@@ -33,11 +33,36 @@ npx tsc --noEmit # typecheck only
 | **Theme colors — BOTH themes, edit here only** | `src/app/themes.css` (`ivory` default + `tattva` teal from the business card, via `data-theme` on `<html>`) |
 | Theme registry for the toggle (ids, labels, swatches) | `src/lib/themes.ts` + `src/components/ThemeToggle.tsx` (in Header); saved theme applied pre-paint by an inline script in `layout.tsx` |
 | Non-color design tokens (fonts, keyframes, type scale) | `src/app/globals.css` |
-| Floating WhatsApp chat button (bottom-left, all pages) | `src/components/WhatsAppButton.tsx` (rendered in `layout.tsx`) |
+| Floating WhatsApp chat button (bottom-left, all pages) | `src/components/WhatsAppButton.tsx` (rendered in `(site)/layout.tsx`) |
+| **Wedding invitations** (ported app — see below) | `src/invite/` + routes in `src/app/(invite)/invitations/[tradition]/` |
 | Shared animation primitives | `src/components/ui/` (Reveal, HeadlineReveal, Magnetic, Marquee, SectionHeading, Counter, PageHero) |
 | SEO structured data builders | `src/lib/schema.ts` + `src/components/JsonLd.tsx` |
 | SMTP contact endpoint | `src/app/api/contact/route.ts` (env vars in `.env.local`, see `.env.example`) |
 | Per-page components | `src/components/{home,gallery,about,films,services,contact}/` |
+
+## Route groups — two layouts, on purpose
+
+`src/app/layout.tsx` is the document shell only (`<html>`/`<body>`, fonts, pre-paint theme script). The chrome lives one level down:
+
+- **`(site)/`** — every studio page. `(site)/layout.tsx` renders Header, Footer, SmoothScroll (Lenis) and WhatsAppButton. Add anything sitewide *here*, not in the root layout.
+- **`(invite)/`** — the ported wedding invitations. Deliberately bare: no header, footer, Lenis or WhatsApp button, because an invitation is a guest-facing page that stands alone.
+
+Both groups are URL-transparent — `(site)/about/page.tsx` is still `/about`.
+
+## Wedding invitations (`src/invite/`)
+
+A port of the standalone `weddingCard` Vite app: six regional presets (Kathiyawadi, Surati, Gujarati, Marwadi, Marathi, Tamil), each with its own artwork, palette, script, fonts and ritual sequence. One static route per tradition at `/invitations/<id>`; `(site)/invitations/page.tsx` is the landing page that indexes them.
+
+**The two rules that keep it from breaking the studio site:**
+
+1. **Every colour token is prefixed `inv-`** (`bg-inv-ivory`, `text-inv-gold`, …). Both apps define ivory/cream/gold with *different* values — unprefixed tokens would repaint the whole site.
+2. **Every rule in `src/invite/invite.css` is scoped to `.invite-root`.** The active tradition's palette and `data-design` are set on that wrapper element (`TraditionScope`), never on `<html>` as the original did.
+
+Other port notes:
+- Fonts load via `next/font/google` in `src/invite/fonts.ts` (the original used 14 `@fontsource` packages), applied only on invitation routes.
+- The route is the source of truth for the active tradition — selecting one navigates rather than mutating state, so invitations are shareable and indexable.
+- Assets live in `public/images/invitations/`. Surati intentionally reuses the Kathiyawadi artwork.
+- **Content is still sample data** — placeholder couples, venues and an unassigned phone number in `src/invite/data/traditions/*.ts`. RSVP and Wishes forms have no backend; they were non-functional in the source and remain so.
 
 ## Design system (do not deviate)
 

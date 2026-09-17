@@ -358,3 +358,97 @@ export const marqueeWords = [
   "Celebrity Events",
   "Films",
 ];
+
+/* ─────────────────────────────────────────────────────────────
+ *  DIGITAL WEDDING INVITATIONS
+ *  A separate companion app (Vite/React) served at /invitations.
+ *  Each preset is a full animated invite — its own artwork,
+ *  palette, script, rituals and language. Deep-linked with
+ *  ?tradition=<id>, matching the invite app's own query param.
+ * ───────────────────────────────────────────────────────────── */
+
+export interface InvitationFormat {
+  /** matches the `tradition` id in the invitation app */
+  id: string;
+  label: string;
+  /** the tradition's own script — rendered as a native-language accent */
+  nativeLabel: string;
+  /** lang attribute so screen readers switch voice correctly */
+  nativeLang: string;
+  state: string;
+  region: string;
+  /** the design language of that preset, e.g. "Patola heritage" */
+  design: string;
+  /** ritual sequence, kept in the family's own vocabulary */
+  highlights: string;
+  image: string;
+}
+
+export const invitationFormats: InvitationFormat[] = [
+  {
+    id: "kathiyawadi",
+    label: "Kathiyawadi",
+    nativeLabel: "કાઠિયાવાડી",
+    nativeLang: "gu",
+    state: "Gujarat",
+    region: "Saurashtra",
+    design: "Abhla folk",
+    highlights: "Mandvo · Mameru · Pithi · Raas & dayro · Hast melap",
+    image: "/images/invitations/kathiyawadi-720.webp",
+  },
+  {
+    id: "surati",
+    label: "Surati",
+    nativeLabel: "સુરતી",
+    nativeLang: "gu",
+    state: "Gujarat",
+    region: "South Gujarat",
+    design: "Zari & diamond",
+    highlights: "12 rituals over 4 days · Mameru · Ponkh & ghari night · Hast melap",
+    image: "/images/invitations/surati-720.webp",
+  },
+  {
+    id: "gujarati",
+    label: "Gujarati",
+    nativeLabel: "ગુજરાતી",
+    nativeLang: "gu",
+    state: "Gujarat",
+    region: "Central Gujarat",
+    design: "Patola heritage",
+    highlights: "Ganesh sthapana · Mehndi · Pithi · Garba night · Godhuli hast melap",
+    image: "/images/invitations/gujarati-720.webp",
+  },
+  {
+    id: "marwadi",
+    label: "Marwadi",
+    nativeLabel: "मारवाड़ी",
+    nativeLang: "hi",
+    state: "Rajasthan",
+    region: "Marwar",
+    design: "Rajputana royal",
+    highlights: "Haldi · Mayra · Mehendi & sangeet · Nikasi · Phere · Vidaai",
+    image: "/images/invitations/marwadi-720.webp",
+  },
+  {
+    id: "marathi",
+    label: "Marathi",
+    nativeLabel: "मराठी",
+    nativeLang: "mr",
+    state: "Maharashtra",
+    region: "Pune",
+    design: "Paithani silk",
+    highlights: "Devdevak · Haldi · Seemant pujan · Antarpat · Swagat samarambh",
+    image: "/images/invitations/marathi-720.webp",
+  },
+  {
+    id: "tamil",
+    label: "Tamil",
+    nativeLabel: "தமிழ்",
+    nativeLang: "ta",
+    state: "Tamil Nadu",
+    region: "Madurai",
+    design: "Temple & kolam",
+    highlights: "Pandhakkal · Nichayathartham · Janavasam · Muhurtham · Reception",
+    image: "/images/invitations/tamil-720.webp",
+  },
+];

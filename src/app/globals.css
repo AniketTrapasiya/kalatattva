@@ -1,6 +1,9 @@
 @import "tailwindcss";
 /* All color tokens live in themes.css — edit themes there only. */
 @import "./themes.css";
+/* Ported wedding-invitation styles. Every token is prefixed `inv-` and every
+   rule is scoped to .invite-root, so nothing here affects the studio site. */
+@import "../invite/invite.css";
 
 @theme inline {
   --color-ivory: var(--ivory);

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
-import { gallery, heroImages } from "@/lib/data";
+import { gallery, heroImages, invitationFormats } from "@/lib/data";
 
 /**
  * Sitemap for all public routes, served at /sitemap.xml.
@@ -26,6 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { path: "/films", changeFrequency: "weekly", priority: 0.8, images: [abs(heroImages.films)] },
     { path: "/services", changeFrequency: "monthly", priority: 0.8, images: [abs(heroImages.services)] },
+    {
+      path: "/invitations",
+      changeFrequency: "monthly",
+      priority: 0.7,
+      images: invitationFormats.map((f) => abs(f.image)),
+    },
     { path: "/about", changeFrequency: "monthly", priority: 0.7, images: [abs(heroImages.about)] },
     { path: "/contact", changeFrequency: "monthly", priority: 0.6, images: [abs(heroImages.contact)] },
   ];

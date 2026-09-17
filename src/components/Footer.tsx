@@ -87,6 +87,7 @@ export default function Footer() {
               { href: "/gallery", label: "Gallery" },
               { href: "/films", label: "Films" },
               { href: "/services", label: "Services" },
+              { href: "/invitations", label: "Digital Invitations" },
               { href: "/about", label: "About & Journey" },
               { href: "/contact", label: "Contact" },
             ].map((l) => (

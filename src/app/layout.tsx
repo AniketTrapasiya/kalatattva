@@ -3,12 +3,6 @@ import { Fraunces, DM_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { themeInitScript } from "@/lib/themes";
-import { baseGraph } from "@/lib/schema";
-import JsonLd from "@/components/JsonLd";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import SmoothScroll from "@/components/SmoothScroll";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -79,6 +73,14 @@ export const viewport: Viewport = {
   themeColor: "#faf7f0",
 };
 
+/**
+ * Root layout — the document shell only.
+ *
+ * The site chrome (header, footer, smooth scroll, WhatsApp button) lives in
+ * src/app/(site)/layout.tsx, because the ported wedding invitations under
+ * (invite) render standalone: an invitation you send to guests carries no
+ * studio nav. Anything added here appears on invitations too.
+ */
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -91,14 +93,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* Apply the saved theme before first paint — prevents a flash */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="flex min-h-full flex-col">
-        <JsonLd data={baseGraph()} />
-        <SmoothScroll />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-      </body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }

@@ -6,6 +6,7 @@ import RitualsBand from "@/components/home/RitualsBand";
 import FeaturedWork from "@/components/home/FeaturedWork";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import FilmStrip from "@/components/home/FilmStrip";
+import InvitationsBand from "@/components/home/InvitationsBand";
 import Testimonials from "@/components/home/Testimonials";
 import InstaStrip from "@/components/home/InstaStrip";
 import Marquee from "@/components/ui/Marquee";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <FeaturedWork />
       <ServicesPreview />
       <FilmStrip />
+      <InvitationsBand />
 
       {/* Light marquee divider between the two story bands */}
       <div className="border-y border-line bg-ivory py-8" aria-hidden="true">
